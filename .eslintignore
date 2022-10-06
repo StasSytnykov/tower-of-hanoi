@@ -1,5 +1,2 @@
 !.storybook
-!.storybook/main.js
 !.eslintrc.js
-
-/root/src/*.js
