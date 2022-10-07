@@ -1,5 +1,5 @@
 import { findLastIndex } from "../../../utils/findLastIndex";
-import { IDisksList } from "../../../interfaces/disksInterface";
+import { IDisksSourceListProps } from "../../../interfaces/disksInterfaces";
 import styles from "./DisksList.module.css";
 
 export const SourceDisksList = ({
@@ -7,7 +7,7 @@ export const SourceDisksList = ({
   setSource,
   tookDisk,
   setTookDisk,
-}: IDisksList) => {
+}: IDisksSourceListProps) => {
   const onDisksClick = () => {
     // Logic how took disk
     if (source[findLastIndex(source)] !== undefined && tookDisk === 0) {
