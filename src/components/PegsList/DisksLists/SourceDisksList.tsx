@@ -44,12 +44,3 @@ export const SourceDisksList = ({
     </ul>
   );
 };
-
-// Logic how return disk for the start
-// if (
-//   auxiliary.length !== 0 &&
-//   auxiliary[findLastIndex(auxiliary)] < tookDisk
-// ) {
-//   setSource((prevState1) => [...prevState1, tookDisk]);
-//   setTookDisk(0);
-// }
