@@ -19,8 +19,8 @@ export const PegsList = () => {
           <SourceDisksList
             tookDisk={tookDisk}
             setTookDisk={onSetTookDisk}
-            source={source}
-            setSource={setSource}
+            pegs={source}
+            setPegs={setSource}
           />
         </div>
         <div className={styles.bottomStick} />
@@ -30,8 +30,8 @@ export const PegsList = () => {
           <AuxiliaryDisksList
             tookDisk={tookDisk}
             setTookDisk={onSetTookDisk}
-            auxiliary={auxiliary}
-            setAuxiliary={setAuxiliary}
+            pegs={auxiliary}
+            setPegs={setAuxiliary}
           />
         </div>
         <div className={styles.bottomStick} />
@@ -39,8 +39,8 @@ export const PegsList = () => {
       <li>
         <div className={styles.centerStick}>
           <DestinationDisksList
-            destination={destination}
-            setDestination={setDestination}
+            pegs={destination}
+            setPegs={setDestination}
             tookDisk={tookDisk}
             setTookDisk={setTookDisk}
           />
