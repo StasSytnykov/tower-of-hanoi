@@ -1,52 +1,57 @@
 import { useState } from "react";
-import styles from "./PegsList.module.css";
 import { SourceDisksList } from "./DisksLists/SourceDisksList";
 import { AuxiliaryDisksList } from "./DisksLists/AuxiliaryDisksList";
 import { DestinationDisksList } from "./DisksLists/DestinationDisksList";
+import {
+  PegsListStyled,
+  PegsItemStyled,
+  CenterStick,
+  BottomStick,
+} from "./PegsList.styled";
 
 export const PegsList = () => {
-  const [source, setSource] = useState<number[]>([3, 2, 1]);
-  const [auxiliary, setAuxiliary] = useState<number[]>([]);
-  const [destination, setDestination] = useState<number[]>([]);
+  const [sourceDisks, setSourceDisks] = useState<number[]>([3, 2, 1]);
+  const [auxiliaryDisks, setAuxiliaryDisks] = useState<number[]>([]);
+  const [destinationDisks, setDestinationDisks] = useState<number[]>([]);
   const [tookDisk, setTookDisk] = useState<number>(0);
 
   const onSetTookDisk = (arg: number) => setTookDisk(arg);
 
   return (
-    <ul className={styles.pegsList}>
-      <li>
-        <div className={styles.centerStick}>
+    <PegsListStyled>
+      <PegsItemStyled>
+        <CenterStick>
           <SourceDisksList
             tookDisk={tookDisk}
             setTookDisk={onSetTookDisk}
-            pegs={source}
-            setPegs={setSource}
+            pegDisks={sourceDisks}
+            setPegDisks={setSourceDisks}
           />
-        </div>
-        <div className={styles.bottomStick} />
-      </li>
-      <li>
-        <div className={styles.centerStick}>
+        </CenterStick>
+        <BottomStick />
+      </PegsItemStyled>
+      <PegsItemStyled>
+        <CenterStick>
           <AuxiliaryDisksList
             tookDisk={tookDisk}
             setTookDisk={onSetTookDisk}
-            pegs={auxiliary}
-            setPegs={setAuxiliary}
+            pegDisks={auxiliaryDisks}
+            setPegDisks={setAuxiliaryDisks}
           />
-        </div>
-        <div className={styles.bottomStick} />
-      </li>
-      <li>
-        <div className={styles.centerStick}>
+        </CenterStick>
+        <BottomStick />
+      </PegsItemStyled>
+      <PegsItemStyled>
+        <CenterStick>
           <DestinationDisksList
-            pegs={destination}
-            setPegs={setDestination}
+            pegDisks={destinationDisks}
+            setPegDisks={setDestinationDisks}
             tookDisk={tookDisk}
             setTookDisk={setTookDisk}
           />
-        </div>
-        <div className={styles.bottomStick} />
-      </li>
-    </ul>
+        </CenterStick>
+        <BottomStick />
+      </PegsItemStyled>
+    </PegsListStyled>
   );
 };

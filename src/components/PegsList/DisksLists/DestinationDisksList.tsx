@@ -1,19 +1,23 @@
 import { disksLogic } from "../../../utils/disksLogic";
 import { IDisksPegsListProps } from "../../../interfaces/disksInterface";
-import styles from "./DisksList.module.css";
+import { ListThumb, DisksList, DisksItem } from "./DisksList.styled";
 
 export const DestinationDisksList = ({
-  pegs,
-  setPegs,
+  pegDisks,
+  setPegDisks,
   tookDisk,
   setTookDisk,
 }: IDisksPegsListProps) => {
   const onClickDestinationPeg = () => {
-    disksLogic(pegs, setPegs, tookDisk, setTookDisk);
+    disksLogic(pegDisks, setPegDisks, tookDisk, setTookDisk);
   };
   return (
-    <ul onClick={onClickDestinationPeg} className={styles.disksList}>
-      <li></li>
-    </ul>
+    <ListThumb onClick={onClickDestinationPeg}>
+      <DisksList>
+        {pegDisks.map((item) => (
+          <DisksItem key={item} />
+        ))}
+      </DisksList>
+    </ListThumb>
   );
 };

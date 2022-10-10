@@ -1,14 +1,14 @@
 import { findLastIndex } from "./findLastIndex";
 
 export const disksLogic = (
-  pegs: number[],
+  pegDisks: number[],
   setPegs: (prevState: (prevState: number[]) => number[]) => void,
   tookDisk: number,
   setTookDisk: (arg: number) => void
 ) => {
   //Logic how took disk
-  if (pegs[findLastIndex(pegs)] !== undefined && tookDisk === 0) {
-    setTookDisk(pegs[findLastIndex(pegs)]);
+  if (pegDisks[findLastIndex(pegDisks)] !== undefined && tookDisk === 0) {
+    setTookDisk(pegDisks[findLastIndex(pegDisks)]);
   }
 
   //Logic how apply to pop disk
@@ -25,7 +25,7 @@ export const disksLogic = (
   setPegs((prevState) => {
     if (
       tookDisk !== 0 &&
-      (pegs.length === 0 || pegs[findLastIndex(pegs)] > tookDisk)
+      (pegDisks.length === 0 || pegDisks[findLastIndex(pegDisks)] > tookDisk)
     ) {
       prevState.push(tookDisk);
       setTookDisk(0);
