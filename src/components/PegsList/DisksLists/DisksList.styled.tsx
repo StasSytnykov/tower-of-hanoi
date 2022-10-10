@@ -22,11 +22,4 @@ const DisksList = styled.ul`
   min-width: 250px;
 `;
 
-const DisksItem = styled.li`
-  background-color: #1ea7fd;
-  width: 280px;
-  height: 20px;
-  border-radius: 20px;
-`;
-
-export { ListThumb, DisksList, DisksItem };
+export { ListThumb, DisksList };
