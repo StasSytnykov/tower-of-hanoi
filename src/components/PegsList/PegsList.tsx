@@ -1,9 +1,11 @@
 import { useState } from "react";
+import { NumberOfDisks } from "../NumberOfDisks/NumberOfDisks";
 import { IPegs } from "../../interfaces/disksInterface";
 import { SourceDisksList } from "./DisksLists/SourceDisksList";
 import { AuxiliaryDisksList } from "./DisksLists/AuxiliaryDisksList";
 import { DestinationDisksList } from "./DisksLists/DestinationDisksList";
 import {
+  PegsListThumb,
   PegsListStyled,
   PegsItemStyled,
   CenterStick,
@@ -26,43 +28,46 @@ export const PegsList = () => {
   const onSetTookDisk = (arg: IPegs) => setTookDisk(arg);
 
   return (
-    <PegsListStyled>
-      <PegsItemStyled>
-        <CenterStick>
-          <SourceDisksList
-            startPegId={1}
-            tookDisk={tookDisk}
-            setTookDisk={onSetTookDisk}
-            pegDisks={sourceDisks}
-            setPegDisks={setSourceDisks}
-          />
-        </CenterStick>
-        <BottomStick />
-      </PegsItemStyled>
-      <PegsItemStyled>
-        <CenterStick>
-          <AuxiliaryDisksList
-            startPegId={2}
-            tookDisk={tookDisk}
-            setTookDisk={onSetTookDisk}
-            pegDisks={auxiliaryDisks}
-            setPegDisks={setAuxiliaryDisks}
-          />
-        </CenterStick>
-        <BottomStick />
-      </PegsItemStyled>
-      <PegsItemStyled>
-        <CenterStick>
-          <DestinationDisksList
-            startPegId={3}
-            pegDisks={destinationDisks}
-            setPegDisks={setDestinationDisks}
-            tookDisk={tookDisk}
-            setTookDisk={setTookDisk}
-          />
-        </CenterStick>
-        <BottomStick />
-      </PegsItemStyled>
-    </PegsListStyled>
+    <PegsListThumb>
+      <PegsListStyled>
+        <PegsItemStyled>
+          <CenterStick>
+            <SourceDisksList
+              startPegId={1}
+              tookDisk={tookDisk}
+              setTookDisk={onSetTookDisk}
+              pegDisks={sourceDisks}
+              setPegDisks={setSourceDisks}
+            />
+          </CenterStick>
+          <BottomStick />
+        </PegsItemStyled>
+        <PegsItemStyled>
+          <CenterStick>
+            <AuxiliaryDisksList
+              startPegId={2}
+              tookDisk={tookDisk}
+              setTookDisk={onSetTookDisk}
+              pegDisks={auxiliaryDisks}
+              setPegDisks={setAuxiliaryDisks}
+            />
+          </CenterStick>
+          <BottomStick />
+        </PegsItemStyled>
+        <PegsItemStyled>
+          <CenterStick>
+            <DestinationDisksList
+              startPegId={3}
+              pegDisks={destinationDisks}
+              setPegDisks={setDestinationDisks}
+              tookDisk={tookDisk}
+              setTookDisk={setTookDisk}
+            />
+          </CenterStick>
+          <BottomStick />
+        </PegsItemStyled>
+      </PegsListStyled>
+      <NumberOfDisks />
+    </PegsListThumb>
   );
 };
