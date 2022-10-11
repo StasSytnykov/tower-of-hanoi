@@ -1,9 +1,11 @@
 export interface IPegs {
   width: number;
   id: number;
+  startPegId: number;
 }
 
 export interface IDisksPegsListProps {
+  startPegId: number;
   pegDisks: IPegs[];
   setPegDisks: (prevState: (prevState: IPegs[]) => IPegs[]) => void;
   tookDisk: IPegs;

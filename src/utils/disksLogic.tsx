@@ -5,11 +5,15 @@ export const disksLogic = (
   pegDisks: IPegs[],
   setPegs: (prevState: (prevState: IPegs[]) => IPegs[]) => void,
   tookDisk: IPegs,
-  setTookDisk: (arg: IPegs) => void
+  setTookDisk: (arg: { startPegId: number; width: number; id: number }) => void,
+  startPegId: number
 ) => {
   //Logic how took disk
   if (pegDisks[findLastIndex(pegDisks)] !== undefined && tookDisk.id === 0) {
-    setTookDisk(pegDisks[findLastIndex(pegDisks)]);
+    setTookDisk({
+      ...pegDisks[findLastIndex(pegDisks)],
+      startPegId: startPegId,
+    });
   }
 
   //Logic how apply to pop disk
@@ -30,7 +34,7 @@ export const disksLogic = (
         pegDisks[findLastIndex(pegDisks)].id > tookDisk.id)
     ) {
       prevState.push(tookDisk);
-      setTookDisk({ width: 0, id: 0 });
+      setTookDisk({ width: 0, id: 0, startPegId: 0 });
       return [...prevState];
     }
     return [...prevState];

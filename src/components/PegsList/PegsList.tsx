@@ -12,14 +12,17 @@ import {
 
 export const PegsList = () => {
   const [sourceDisks, setSourceDisks] = useState<IPegs[]>([
-    { width: 280, id: 3 },
-    { width: 260, id: 2 },
-    { width: 240, id: 1 },
+    { width: 280, id: 3, startPegId: 1 },
+    { width: 260, id: 2, startPegId: 1 },
+    { width: 240, id: 1, startPegId: 1 },
   ]);
   const [auxiliaryDisks, setAuxiliaryDisks] = useState<IPegs[]>([]);
   const [destinationDisks, setDestinationDisks] = useState<IPegs[]>([]);
-  const [tookDisk, setTookDisk] = useState<IPegs>({ width: 0, id: 0 });
-
+  const [tookDisk, setTookDisk] = useState<IPegs>({
+    width: 0,
+    id: 0,
+    startPegId: 0,
+  });
   const onSetTookDisk = (arg: IPegs) => setTookDisk(arg);
 
   return (
@@ -27,6 +30,7 @@ export const PegsList = () => {
       <PegsItemStyled>
         <CenterStick>
           <SourceDisksList
+            startPegId={1}
             tookDisk={tookDisk}
             setTookDisk={onSetTookDisk}
             pegDisks={sourceDisks}
@@ -38,6 +42,7 @@ export const PegsList = () => {
       <PegsItemStyled>
         <CenterStick>
           <AuxiliaryDisksList
+            startPegId={2}
             tookDisk={tookDisk}
             setTookDisk={onSetTookDisk}
             pegDisks={auxiliaryDisks}
@@ -49,6 +54,7 @@ export const PegsList = () => {
       <PegsItemStyled>
         <CenterStick>
           <DestinationDisksList
+            startPegId={3}
             pegDisks={destinationDisks}
             setPegDisks={setDestinationDisks}
             tookDisk={tookDisk}

@@ -4,13 +4,14 @@ import { ListThumb, DisksList } from "./DisksList.styled";
 import { DiskItem } from "./DiskItem/DiskItem";
 
 export const AuxiliaryDisksList = ({
+  startPegId,
   pegDisks,
   setPegDisks,
   tookDisk,
   setTookDisk,
 }: IDisksPegsListProps) => {
   const onClickAuxiliaryPeg = () => {
-    disksLogic(pegDisks, setPegDisks, tookDisk, setTookDisk);
+    disksLogic(pegDisks, setPegDisks, tookDisk, setTookDisk, startPegId);
   };
 
   return (
