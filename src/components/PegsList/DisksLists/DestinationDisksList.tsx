@@ -1,16 +1,16 @@
-// import { disksLogic } from "../../../utils/disksLogic";
+import { disksLogic } from "../../../utils/disksLogic";
 import { IDisksPegsListProps } from "../../../interfaces/disksInterface";
 import { ListThumb, DisksList } from "./DisksList.styled";
 import { DiskItem } from "./DiskItem/DiskItem";
 
 export const DestinationDisksList = ({
   pegDisks,
-}: // setPegDisks,
-// tookDisk,
-// setTookDisk,
-IDisksPegsListProps) => {
+  setPegDisks,
+  tookDisk,
+  setTookDisk,
+}: IDisksPegsListProps) => {
   const onClickDestinationPeg = () => {
-    // disksLogic(pegDisks, setPegDisks, tookDisk, setTookDisk);
+    disksLogic(pegDisks, setPegDisks, tookDisk, setTookDisk);
   };
 
   return (

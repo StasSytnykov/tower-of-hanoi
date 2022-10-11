@@ -1,13 +1,13 @@
-export interface IDisksPegsListProps {
-  pegDisks: number[];
-  setPegDisks: (prevState: (prevState: number[]) => number[]) => void;
-  tookDisk: number;
-  setTookDisk: (arg: number) => void;
-}
-
 export interface IPegs {
   width: number;
   id: number;
+}
+
+export interface IDisksPegsListProps {
+  pegDisks: IPegs[];
+  setPegDisks: (prevState: (prevState: IPegs[]) => IPegs[]) => void;
+  tookDisk: IPegs;
+  setTookDisk: (arg: IPegs) => void;
 }
 
 export interface IDiskItemStyledProps {
@@ -15,5 +15,5 @@ export interface IDiskItemStyledProps {
 }
 
 export interface IDiskItemProps {
-  pegDisks: number[];
+  pegDisks: IPegs[];
 }
