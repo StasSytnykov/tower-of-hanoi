@@ -1,5 +1,5 @@
 import { findLastIndex } from "./findLastIndex";
-import { onNotify } from "./notifyLogic";
+import { onErrorNotify } from "./notifyLogic/onErrorNotify";
 import { IPegs } from "../interfaces/disksInterface";
 
 export const disksLogic = (
@@ -48,5 +48,5 @@ export const disksLogic = (
     return [...prevState];
   });
 
-  onNotify(tookDisk, pegDisks);
+  onErrorNotify(tookDisk, pegDisks);
 };

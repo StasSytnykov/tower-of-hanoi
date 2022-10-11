@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { onGetRandomColor } from "../../utils/onGetRandomColor";
 import { NumberOfDisks } from "../NumberOfDisks/NumberOfDisks";
+import { onWinNotify } from "../../utils/notifyLogic/onWinNotify";
 import { IPegs } from "../../interfaces/disksInterface";
 import { SourceDisksList } from "./DisksLists/SourceDisksList";
 import { AuxiliaryDisksList } from "./DisksLists/AuxiliaryDisksList";
@@ -27,9 +28,7 @@ export const PegsList = () => {
     startPegId: 0,
     color: "",
   });
-
   const onSetTookDisk = (arg: IPegs) => setTookDisk(arg);
-
   return (
     <PegsListThumb>
       <PegsListStyled>
@@ -60,6 +59,9 @@ export const PegsList = () => {
         <PegsItemStyled>
           <CenterStick>
             <DestinationDisksList
+              onWinNotify={() =>
+                onWinNotify(sourceDisks, auxiliaryDisks, tookDisk)
+              }
               startPegId={3}
               pegDisks={destinationDisks}
               setPegDisks={setDestinationDisks}
@@ -71,6 +73,9 @@ export const PegsList = () => {
         </PegsItemStyled>
       </PegsListStyled>
       <NumberOfDisks
+        tookDisk={tookDisk}
+        auxiliaryDisks={auxiliaryDisks}
+        destinationDisks={destinationDisks}
         sourceDisks={sourceDisks}
         setSourceDisks={setSourceDisks}
       />

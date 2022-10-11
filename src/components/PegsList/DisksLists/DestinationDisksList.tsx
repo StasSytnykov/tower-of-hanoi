@@ -1,15 +1,18 @@
+import React, { useEffect } from "react";
 import { disksLogic } from "../../../utils/disksLogic";
-import { IDisksPegsListProps } from "../../../interfaces/disksInterface";
+import { IDisksDestinationProps } from "../../../interfaces/disksInterface";
 import { ListThumb, DisksList } from "./DisksList.styled";
 import { DiskItem } from "./DiskItem/DiskItem";
 
 export const DestinationDisksList = ({
+  onWinNotify,
   startPegId,
   pegDisks,
   setPegDisks,
   tookDisk,
   setTookDisk,
-}: IDisksPegsListProps) => {
+}: IDisksDestinationProps) => {
+  useEffect(() => onWinNotify(), [onWinNotify]);
   const onClickDestinationPeg = () => {
     disksLogic(pegDisks, setPegDisks, tookDisk, setTookDisk, startPegId);
   };

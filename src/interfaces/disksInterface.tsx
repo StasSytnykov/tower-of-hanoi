@@ -13,6 +13,10 @@ export interface IDisksPegsListProps {
   setTookDisk: (arg: IPegs) => void;
 }
 
+export interface IDisksDestinationProps extends IDisksPegsListProps {
+  onWinNotify: () => void;
+}
+
 export interface IDiskItemStyledProps {
   width: number;
 }
