@@ -5,7 +5,12 @@ export const disksLogic = (
   pegDisks: IPegs[],
   setPegs: (prevState: (prevState: IPegs[]) => IPegs[]) => void,
   tookDisk: IPegs,
-  setTookDisk: (arg: { startPegId: number; width: number; id: number }) => void,
+  setTookDisk: (arg: {
+    color: string;
+    width: number;
+    startPegId: number;
+    id: number;
+  }) => void,
   startPegId: number
 ) => {
   //Logic how took disk
@@ -34,7 +39,7 @@ export const disksLogic = (
         pegDisks[findLastIndex(pegDisks)].id < tookDisk.id)
     ) {
       prevState.push(tookDisk);
-      setTookDisk({ width: 0, id: 0, startPegId: 0 });
+      setTookDisk({ width: 0, id: 0, startPegId: 0, color: "" });
       return [...prevState];
     }
     return [...prevState];

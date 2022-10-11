@@ -1,5 +1,6 @@
 import { IPegs } from "../interfaces/disksInterface";
 import { findLastIndex } from "./findLastIndex";
+import { onGetRandomColor } from "./onGetRandomColor";
 
 export const onAddDisk = (
   sourceDisks: IPegs[],
@@ -14,6 +15,7 @@ export const onAddDisk = (
         width: lastDiskInStartPeg.width - 20,
         id: lastDiskInStartPeg.id + 1,
         startPegId: 1,
+        color: onGetRandomColor(),
       },
     ]);
   }

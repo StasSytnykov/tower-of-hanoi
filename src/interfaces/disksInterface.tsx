@@ -2,6 +2,7 @@ export interface IPegs {
   width: number;
   id: number;
   startPegId: number;
+  color: string;
 }
 
 export interface IDisksPegsListProps {

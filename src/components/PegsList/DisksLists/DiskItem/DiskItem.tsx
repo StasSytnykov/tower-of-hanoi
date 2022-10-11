@@ -4,7 +4,9 @@ import { DiskItemStyled } from "./DiskItem.styled";
 export const DiskItem = ({ pegDisks }: IDiskItemProps) => (
   <>
     {pegDisks.map((item) => {
-      return <DiskItemStyled key={item.id} width={item.width} />;
+      return (
+        <DiskItemStyled key={item.id} width={item.width} color={item.color} />
+      );
     })}
   </>
 );
