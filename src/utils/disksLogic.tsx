@@ -1,4 +1,5 @@
 import { findLastIndex } from "./findLastIndex";
+import { onNotify } from "./notifyLogic";
 import { IPegs } from "../interfaces/disksInterface";
 
 export const disksLogic = (
@@ -40,8 +41,12 @@ export const disksLogic = (
     ) {
       prevState.push(tookDisk);
       setTookDisk({ width: 0, id: 0, startPegId: 0, color: "" });
+
       return [...prevState];
     }
+
     return [...prevState];
   });
+
+  onNotify(tookDisk, pegDisks);
 };

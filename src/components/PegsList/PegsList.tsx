@@ -27,6 +27,7 @@ export const PegsList = () => {
     startPegId: 0,
     color: "",
   });
+
   const onSetTookDisk = (arg: IPegs) => setTookDisk(arg);
 
   return (

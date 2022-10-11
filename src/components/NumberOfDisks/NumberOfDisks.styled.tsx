@@ -5,10 +5,12 @@ const DisksButtonThumb = styled.div`
 `;
 
 const DisksButton = styled.button`
-  width: 180px;
-  height: 50px;
+  width: 230px;
+  height: 70px;
 
   background-color: deepskyblue;
+
+  font-size: 24px;
 
   border-radius: 5px;
   border: 1px solid transparent;
