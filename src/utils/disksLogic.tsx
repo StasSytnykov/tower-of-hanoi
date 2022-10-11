@@ -31,7 +31,7 @@ export const disksLogic = (
     if (
       tookDisk.id !== 0 &&
       (pegDisks.length === 0 ||
-        pegDisks[findLastIndex(pegDisks)].id > tookDisk.id)
+        pegDisks[findLastIndex(pegDisks)].id < tookDisk.id)
     ) {
       prevState.push(tookDisk);
       setTookDisk({ width: 0, id: 0, startPegId: 0 });

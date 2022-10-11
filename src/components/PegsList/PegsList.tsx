@@ -14,9 +14,9 @@ import {
 
 export const PegsList = () => {
   const [sourceDisks, setSourceDisks] = useState<IPegs[]>([
-    { width: 280, id: 3, startPegId: 1 },
+    { width: 280, id: 1, startPegId: 1 },
     { width: 260, id: 2, startPegId: 1 },
-    { width: 240, id: 1, startPegId: 1 },
+    { width: 240, id: 3, startPegId: 1 },
   ]);
   const [auxiliaryDisks, setAuxiliaryDisks] = useState<IPegs[]>([]);
   const [destinationDisks, setDestinationDisks] = useState<IPegs[]>([]);
@@ -67,7 +67,10 @@ export const PegsList = () => {
           <BottomStick />
         </PegsItemStyled>
       </PegsListStyled>
-      <NumberOfDisks />
+      <NumberOfDisks
+        sourceDisks={sourceDisks}
+        setSourceDisks={setSourceDisks}
+      />
     </PegsListThumb>
   );
 };
