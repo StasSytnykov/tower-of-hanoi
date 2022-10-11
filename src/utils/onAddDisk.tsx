@@ -7,12 +7,14 @@ export const onAddDisk = (
 ) => {
   const lastDiskInStartPeg = sourceDisks[findLastIndex(sourceDisks)];
 
-  setSourceDisks([
-    ...sourceDisks,
-    {
-      width: lastDiskInStartPeg.width - 20,
-      id: lastDiskInStartPeg.id + 1,
-      startPegId: 1,
-    },
-  ]);
+  if (lastDiskInStartPeg.width !== 40) {
+    setSourceDisks([
+      ...sourceDisks,
+      {
+        width: lastDiskInStartPeg.width - 20,
+        id: lastDiskInStartPeg.id + 1,
+        startPegId: 1,
+      },
+    ]);
+  }
 };

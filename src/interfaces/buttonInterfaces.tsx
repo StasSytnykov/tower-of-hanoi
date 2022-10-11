@@ -1,6 +1,6 @@
 import { IPegs } from "./disksInterface";
 
-export interface IButton {
+export interface IButtonProps {
   sourceDisks: IPegs[];
   setSourceDisks: (prevState: IPegs[]) => void;
 }
