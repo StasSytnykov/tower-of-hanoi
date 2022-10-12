@@ -10,7 +10,7 @@ function App() {
       <ToastContainer
         style={{ width: "400px" }}
         position="top-center"
-        autoClose={2500}
+        autoClose={5000}
         hideProgressBar={false}
         newestOnTop={false}
         closeOnClick
