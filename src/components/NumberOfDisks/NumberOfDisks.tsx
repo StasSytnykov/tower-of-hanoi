@@ -1,7 +1,8 @@
 import { onAddDisk } from "../../utils/onAddDisk";
 import { onDeleteDisk } from "../../utils/onDeleteDisk";
 import { IButtonProps } from "../../interfaces/buttonInterfaces";
-import { DisksButtonThumb, DisksButton } from "./NumberOfDisks.styled";
+import { DisksButtonThumb } from "./NumberOfDisks.styled";
+import { Button } from "../Button/Button";
 
 export const NumberOfDisks = ({
   tookDisk,
@@ -17,26 +18,24 @@ export const NumberOfDisks = ({
   const onHandleMinusBtnClick = () => {
     onDeleteDisk(sourceDisks, setSourceDisks);
   };
+
+  const isDisabledButton =
+    !!auxiliaryDisks.length || !!destinationDisks.length || !!tookDisk.id;
+
   return (
     <DisksButtonThumb>
-      <DisksButton
+      <Button
+        variant={"primary"}
         onClick={onHandlePlusBtnClick}
-        type={"button"}
-        disabled={
-          !!auxiliaryDisks.length || !!destinationDisks.length || !!tookDisk.id
-        }
-      >
-        +1 disk
-      </DisksButton>
-      <DisksButton
+        disabled={isDisabledButton}
+        children={"+1"}
+      />
+      <Button
+        variant={"secondary"}
         onClick={onHandleMinusBtnClick}
-        type={"button"}
-        disabled={
-          !!auxiliaryDisks.length || !!destinationDisks.length || !!tookDisk.id
-        }
-      >
-        -1 disk
-      </DisksButton>
+        disabled={isDisabledButton}
+        children={"-1"}
+      />
     </DisksButtonThumb>
   );
 };
