@@ -6,7 +6,7 @@ const meta: Meta = {
   component: Button,
   argTypes: {
     children: {
-      defaultValue: "+1",
+      defaultValue: "+1 disk",
     },
   },
 };
@@ -21,5 +21,5 @@ export const Secondary = Template.bind({});
 
 Secondary.args = {
   variant: "secondary",
-  children: "-1",
+  children: "-1 disk",
 };

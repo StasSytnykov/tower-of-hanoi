@@ -28,13 +28,13 @@ export const NumberOfDisks = ({
         variant={"primary"}
         onClick={onHandlePlusBtnClick}
         disabled={isDisabledButton}
-        children={"+1"}
+        children={"+1 disk"}
       />
       <Button
         variant={"secondary"}
         onClick={onHandleMinusBtnClick}
         disabled={isDisabledButton}
-        children={"-1"}
+        children={"-1 disk"}
       />
     </DisksButtonThumb>
   );
