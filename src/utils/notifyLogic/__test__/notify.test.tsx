@@ -5,13 +5,13 @@ import { onWinNotify } from "../onWinNotify";
 const mockFn = jest.fn(onErrorNotify);
 
 describe("notify", () => {
-  it("notify error show", function () {
+  it("notify error show", () => {
     mockFn({ id: 1 }, [{ width: 280, id: 2, color: "#152354" }]);
 
     expect(mockFn).toHaveBeenCalled();
   });
 
-  it("notify win show", function () {
+  it("notify win show", () => {
     const mockFn = jest.fn(onWinNotify);
 
     mockFn([], [], { width: 280, id: 0, color: "#152354" });

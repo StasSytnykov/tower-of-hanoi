@@ -6,7 +6,7 @@ const mockFn = jest.fn();
 const onClickMockFn = jest.fn(onAddDisk);
 
 describe("DiskItem", () => {
-  it("should onAddDisk func work", async () => {
+  it("should onAddDisk func work", () => {
     render(
       <DisksButton
         tookDisk={{ width: 200, id: 1, color: "s" }}
