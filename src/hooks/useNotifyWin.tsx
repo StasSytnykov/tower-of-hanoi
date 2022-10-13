@@ -20,16 +20,15 @@ export const useNotifyWin = (
     ) {
       setTimeout(() => {
         setSourceDisks([
-          { width: 280, id: 1, startPegId: 1, color: onGetRandomColor() },
-          { width: 260, id: 2, startPegId: 1, color: onGetRandomColor() },
-          { width: 240, id: 3, startPegId: 1, color: onGetRandomColor() },
+          { width: 280, id: 1, color: onGetRandomColor() },
+          { width: 260, id: 2, color: onGetRandomColor() },
+          { width: 240, id: 3, color: onGetRandomColor() },
         ]);
         setAuxiliaryDisks([]);
         setDestinationDisks([]);
         setTookDisk({
           width: 0,
           id: 0,
-          startPegId: 0,
           color: "",
         });
       }, 5000);

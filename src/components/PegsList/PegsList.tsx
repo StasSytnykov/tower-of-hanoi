@@ -30,7 +30,6 @@ export const PegsList = () => {
         <PegsItemStyled>
           <CenterStick>
             <SourceDisksList
-              startPegId={1}
               tookDisk={tookDisk}
               setTookDisk={onSetTookDisk}
               pegDisks={sourceDisks}
@@ -42,7 +41,6 @@ export const PegsList = () => {
         <PegsItemStyled>
           <CenterStick>
             <AuxiliaryDisksList
-              startPegId={2}
               tookDisk={tookDisk}
               setTookDisk={onSetTookDisk}
               pegDisks={auxiliaryDisks}
@@ -54,7 +52,6 @@ export const PegsList = () => {
         <PegsItemStyled>
           <CenterStick>
             <DestinationDisksList
-              startPegId={3}
               pegDisks={destinationDisks}
               setPegDisks={setDestinationDisks}
               tookDisk={tookDisk}

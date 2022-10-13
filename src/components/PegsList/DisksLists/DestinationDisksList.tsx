@@ -4,14 +4,13 @@ import { DiskItem } from "./DiskItem/DiskItem";
 import { IDisksPegsListProps } from "../../../interfaces/disksInterface";
 
 export const DestinationDisksList = ({
-  startPegId,
   pegDisks,
   setPegDisks,
   tookDisk,
   setTookDisk,
 }: IDisksPegsListProps) => {
   const onClickDestinationPeg = () => {
-    disksLogic(pegDisks, setPegDisks, tookDisk, setTookDisk, startPegId);
+    disksLogic(pegDisks, setPegDisks, tookDisk, setTookDisk);
   };
 
   return (

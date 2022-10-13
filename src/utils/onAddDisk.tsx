@@ -14,7 +14,6 @@ export const onAddDisk = (
       {
         width: lastDiskInStartPeg.width - 20,
         id: lastDiskInStartPeg.id + 1,
-        startPegId: 1,
         color: onGetRandomColor(),
       },
     ]);
