@@ -1,13 +1,7 @@
-import { HTMLAttributes, ReactNode } from "react";
 import { ButtonStyled } from "./Button.styled";
+import { IBtnProps } from "../../interfaces/buttonInterfaces";
 
-export interface Props extends HTMLAttributes<HTMLButtonElement> {
-  children: ReactNode;
-  variant: "primary" | "secondary";
-  disabled: boolean;
-}
-
-export const Button = ({ children, ...props }: Props) => {
+export const Button = ({ children, ...props }: IBtnProps) => {
   return (
     <ButtonStyled type="button" {...props}>
       {children}

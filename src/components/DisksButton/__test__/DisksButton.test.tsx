@@ -1,5 +1,5 @@
 import { render, screen, fireEvent } from "@testing-library/react";
-import { NumberOfDisks } from "../NumberOfDisks";
+import { DisksButton } from "../DisksButton";
 import { onAddDisk } from "../../../utils/onAddDisk";
 
 const mockFn = jest.fn();
@@ -8,7 +8,7 @@ const onClickMockFn = jest.fn(onAddDisk);
 describe("DiskItem", () => {
   it("should onAddDisk func work", async () => {
     render(
-      <NumberOfDisks
+      <DisksButton
         tookDisk={{ width: 200, id: 1, color: "s" }}
         sourceDisks={[]}
         auxiliaryDisks={[]}

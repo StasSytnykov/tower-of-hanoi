@@ -1,4 +1,4 @@
-import { NumberOfDisks } from "../NumberOfDisks/NumberOfDisks";
+import { DisksButton } from "../DisksButton/DisksButton";
 import { usePegsState } from "../../hooks/usePegsState";
 import { SourceDisksList } from "./DisksLists/SourceDisksList";
 import { AuxiliaryDisksList } from "./DisksLists/AuxiliaryDisksList";
@@ -61,7 +61,7 @@ export const PegsList = () => {
           <BottomStick />
         </PegsItemStyled>
       </PegsListStyled>
-      <NumberOfDisks
+      <DisksButton
         tookDisk={tookDisk}
         auxiliaryDisks={auxiliaryDisks}
         destinationDisks={destinationDisks}

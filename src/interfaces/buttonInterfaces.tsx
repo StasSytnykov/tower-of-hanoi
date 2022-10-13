@@ -1,4 +1,5 @@
 import { IPegs } from "./disksInterface";
+import { HTMLAttributes, ReactNode } from "react";
 
 export interface IButtonProps {
   tookDisk: IPegs;
@@ -6,4 +7,10 @@ export interface IButtonProps {
   auxiliaryDisks: IPegs[];
   destinationDisks: IPegs[];
   setSourceDisks: (prevState: IPegs[]) => void;
+}
+
+export interface IBtnProps extends HTMLAttributes<HTMLButtonElement> {
+  children: ReactNode;
+  variant: "primary" | "secondary";
+  disabled: boolean;
 }
