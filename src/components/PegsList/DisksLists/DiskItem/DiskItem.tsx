@@ -5,7 +5,12 @@ export const DiskItem = ({ pegDisks }: IDiskItemProps) => (
   <>
     {pegDisks.map((item) => {
       return (
-        <DiskItemStyled key={item.id} width={item.width} color={item.color} />
+        <DiskItemStyled
+          key={item.id}
+          width={item.width}
+          color={item.color}
+          data-testid={"diskContainer"}
+        />
       );
     })}
   </>
