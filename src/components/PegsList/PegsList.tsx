@@ -1,8 +1,6 @@
 import { DisksButton } from "../DisksButton/DisksButton";
 import { usePegsState } from "../../hooks/usePegsState";
-import { SourceDisksList } from "./DisksLists/SourceDisksList";
-import { AuxiliaryDisksList } from "./DisksLists/AuxiliaryDisksList";
-import { DestinationDisksList } from "./DisksLists/DestinationDisksList";
+import { PegItem } from "./PegItem/PegItem";
 import {
   PegsListThumb,
   PegsListStyled,
@@ -29,7 +27,7 @@ export const PegsList = () => {
       <PegsListStyled>
         <PegsItemStyled>
           <CenterStick>
-            <SourceDisksList
+            <PegItem
               tookDisk={tookDisk}
               setTookDisk={onSetTookDisk}
               pegDisks={sourceDisks}
@@ -40,7 +38,7 @@ export const PegsList = () => {
         </PegsItemStyled>
         <PegsItemStyled>
           <CenterStick>
-            <AuxiliaryDisksList
+            <PegItem
               tookDisk={tookDisk}
               setTookDisk={onSetTookDisk}
               pegDisks={auxiliaryDisks}
@@ -51,7 +49,7 @@ export const PegsList = () => {
         </PegsItemStyled>
         <PegsItemStyled>
           <CenterStick>
-            <DestinationDisksList
+            <PegItem
               pegDisks={destinationDisks}
               setPegDisks={setDestinationDisks}
               tookDisk={tookDisk}
