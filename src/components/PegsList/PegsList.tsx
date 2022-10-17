@@ -19,7 +19,6 @@ export const PegsList = () => {
     setDestinationDisks,
     tookDisk,
     setTookDisk,
-    onSetTookDisk,
   } = usePegsState();
 
   return (
@@ -29,7 +28,7 @@ export const PegsList = () => {
           <CenterStick>
             <PegItem
               tookDisk={tookDisk}
-              setTookDisk={onSetTookDisk}
+              setTookDisk={setTookDisk}
               pegDisks={sourceDisks}
               setPegDisks={setSourceDisks}
             />
@@ -40,7 +39,7 @@ export const PegsList = () => {
           <CenterStick>
             <PegItem
               tookDisk={tookDisk}
-              setTookDisk={onSetTookDisk}
+              setTookDisk={setTookDisk}
               pegDisks={auxiliaryDisks}
               setPegDisks={setAuxiliaryDisks}
             />

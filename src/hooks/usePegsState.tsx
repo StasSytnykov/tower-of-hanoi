@@ -16,7 +16,6 @@ export const usePegsState = () => {
     id: 0,
     color: "",
   });
-  const onSetTookDisk = (arg: IPegs) => setTookDisk(arg);
   useNotifyWin(
     sourceDisks,
     auxiliaryDisks,
@@ -36,6 +35,5 @@ export const usePegsState = () => {
     setDestinationDisks,
     tookDisk,
     setTookDisk,
-    onSetTookDisk,
   };
 };
