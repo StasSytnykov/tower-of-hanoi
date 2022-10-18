@@ -37,7 +37,7 @@ export const disksLogic = (
   }
 
   //On pop disk
-  if (tookDisk.id === 0) {
+  if (tookDisk.id === 0 && pegDisks.length > 1) {
     setPegDisks((prevState) => {
       const newPegs = [...pegDisks];
       newPegs.pop();
