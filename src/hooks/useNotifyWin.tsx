@@ -24,9 +24,7 @@ export const useNotifyWin = (
       auxiliaryPegDisks.length === 1 &&
       tookDisk.id === 0
     ) {
-      setTimeout(() => {
-        setPegDisks(initialState);
-      }, 5000);
+      setPegDisks(initialState);
 
       toast("Wow, you are amazing congratulations on the victory");
     }
