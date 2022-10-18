@@ -5,12 +5,7 @@ import { DisksListStyled } from "./DiskList.styled";
 export const DiskList = ({ pegDisks }: IDiskItemProps) => (
   <DisksListStyled>
     {pegDisks.map((item) => (
-      <DiskItem
-        data-testid="custom-element"
-        key={item.id}
-        width={item.width}
-        color={item.color}
-      />
+      <DiskItem key={item.id} width={item.width} color={item.color} />
     ))}
   </DisksListStyled>
 );
