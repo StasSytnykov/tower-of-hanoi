@@ -1,3 +1,5 @@
+import { HTMLAttributes, ReactNode } from "react";
+
 export interface IDisk {
   peg: string;
   width: number;
@@ -34,6 +36,7 @@ export interface IDiskItemStyledProps {
   width: number;
 }
 
-export interface IDiskItemProps {
+export interface IDiskItemProps extends HTMLAttributes<HTMLButtonElement> {
   pegDisks: IDisk[];
+  children?: ReactNode;
 }

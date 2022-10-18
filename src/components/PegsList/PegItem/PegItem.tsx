@@ -1,7 +1,7 @@
 import { disksLogic } from "../../../utils/disksLogic";
 import { IDisksPegsListProps } from "../../../interfaces/disksInterface";
-import { ListThumb, DisksList } from "./PegItem.styled";
-import { DiskItem } from "./DiskItem/DiskItem";
+import { ListThumb } from "./PegItem.styled";
+import { DiskList } from "./DiskList/DiskList";
 
 export const PegItem = ({
   pegDisks,
@@ -13,9 +13,7 @@ export const PegItem = ({
   };
   return (
     <ListThumb onClick={onClickPeg}>
-      <DisksList>
-        <DiskItem pegDisks={pegDisks} />
-      </DisksList>
+      <DiskList pegDisks={pegDisks}></DiskList>
     </ListThumb>
   );
 };
