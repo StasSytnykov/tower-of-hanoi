@@ -1,4 +1,4 @@
-// import { DisksButton } from "../DisksButton/DisksButton";
+import { DisksButton } from "../DisksButton/DisksButton";
 import { usePegsState } from "../../hooks/usePegsState";
 import { PegItem } from "./PegItem/PegItem";
 import {
@@ -46,13 +46,7 @@ export const PegsList = () => {
           <BottomStick />
         </PegsItemStyled>
       </PegsListStyled>
-      {/*<DisksButton*/}
-      {/*  tookDisk={tookDisk}*/}
-      {/*  auxiliaryDisks={auxiliaryDisks}*/}
-      {/*  destinationDisks={destinationDisks}*/}
-      {/*  sourceDisks={sourceDisks}*/}
-      {/*  setSourceDisks={setSourceDisks}*/}
-      {/*/>*/}
+      <DisksButton pegDisks={pegDisks} setPegDisks={setPegDisks} />
     </PegsListThumb>
   );
 };

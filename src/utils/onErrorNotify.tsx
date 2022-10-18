@@ -1,6 +1,6 @@
 import { toast } from "react-toastify";
-import { findLastIndex } from "../findLastIndex";
-import { IDisk } from "../../interfaces/disksInterface";
+import { findLastIndex } from "./findLastIndex";
+import { IDisk } from "../interfaces/disksInterface";
 
 export const notifyError = () =>
   toast.error("Wow it's wrong move! Try again!", {
@@ -17,7 +17,7 @@ export const notifyError = () =>
 export const onErrorNotify = (tookDisk: { id: number }, pegDisks: IDisk[]) => {
   if (
     tookDisk.id !== 0 &&
-    pegDisks.length !== 0 &&
+    pegDisks.length !== 1 &&
     pegDisks[findLastIndex(pegDisks)].id > tookDisk.id
   ) {
     notifyError();

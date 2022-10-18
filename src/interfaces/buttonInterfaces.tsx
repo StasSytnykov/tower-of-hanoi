@@ -2,11 +2,32 @@ import { IDisk } from "./disksInterface";
 import { HTMLAttributes, ReactNode } from "react";
 
 export interface IButtonProps {
-  tookDisk: IDisk;
-  sourceDisks: IDisk[];
-  auxiliaryDisks: IDisk[];
-  destinationDisks: IDisk[];
-  setSourceDisks: (prevState: IDisk[]) => void;
+  pegDisks: {
+    destinationPegDisks: IDisk[];
+    sourcePegDisks: IDisk[];
+    auxiliaryPegDisks: IDisk[];
+    tookDisk: IDisk;
+  };
+  setPegDisks: (
+    value:
+      | ((prevState: {
+          destinationPegDisks: IDisk[];
+          sourcePegDisks: IDisk[];
+          auxiliaryPegDisks: IDisk[];
+          tookDisk: IDisk;
+        }) => {
+          destinationPegDisks: IDisk[];
+          sourcePegDisks: IDisk[];
+          auxiliaryPegDisks: IDisk[];
+          tookDisk: IDisk;
+        })
+      | {
+          destinationPegDisks: IDisk[];
+          sourcePegDisks: IDisk[];
+          auxiliaryPegDisks: IDisk[];
+          tookDisk: IDisk;
+        }
+  ) => void;
 }
 
 export interface IBtnProps extends HTMLAttributes<HTMLButtonElement> {

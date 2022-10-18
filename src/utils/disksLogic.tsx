@@ -1,7 +1,4 @@
-// import { onErrorNotify } from "./notifyLogic/onErrorNotify";
-// import { onTookDisk } from "./onTookDisk";
-// import { onPopDisk } from "./onPopDisk";
-// import { onMoveDisk } from "./onMoveDisk";
+import { onErrorNotify } from "./onErrorNotify";
 import { IDisk } from "../interfaces/disksInterface";
 import { findLastIndex } from "./findLastIndex";
 
@@ -29,8 +26,6 @@ export const disksLogic = (
   ) => void,
   tookDisk: IDisk
 ) => {
-  // onTookDisk(pegDisks, tookDisk.id, setPegDisks);
-
   //On took disk
   if (pegDisks[findLastIndex(pegDisks)] !== undefined && tookDisk.id === 0) {
     setPegDisks((prevState) => {
@@ -42,7 +37,6 @@ export const disksLogic = (
   }
 
   //On pop disk
-  // onPopDisk(tookDisk.id, setPegDisks);
   if (tookDisk.id === 0) {
     setPegDisks((prevState) => {
       const newPegs = [...pegDisks];
@@ -58,7 +52,6 @@ export const disksLogic = (
     });
   }
 
-  // onMoveDisk(pegDisks, setPegDisks, tookDisk);
   //On move disk
   setPegDisks((prevState) => {
     if (
@@ -68,7 +61,6 @@ export const disksLogic = (
     ) {
       const newPegs = [...pegDisks];
       newPegs.push(tookDisk);
-      // setTookDisk({ width: 0, id: 0, color: "" });
 
       switch (pegDisks[0].peg) {
         case "source":
@@ -94,6 +86,6 @@ export const disksLogic = (
 
     return { ...prevState };
   });
-};
 
-// onErrorNotify(tookDisk, pegDisks);
+  onErrorNotify(tookDisk, pegDisks);
+};

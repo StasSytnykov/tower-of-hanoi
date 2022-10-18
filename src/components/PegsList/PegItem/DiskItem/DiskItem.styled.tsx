@@ -6,4 +6,8 @@ export const DiskItemStyled = styled.li<IDiskItemStyledProps>`
   width: ${(props) => props.width + "px"};
   height: 20px;
   border-radius: 20px;
+
+  &:first-child {
+    display: none;
+  }
 `;

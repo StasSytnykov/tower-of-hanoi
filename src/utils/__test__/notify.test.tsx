@@ -1,6 +1,6 @@
 import { describe, expect, it } from "@jest/globals";
 import { onErrorNotify } from "../onErrorNotify";
-import { onWinNotify } from "../onWinNotify";
+import { toast } from "react-toastify";
 
 const mockFn = jest.fn(onErrorNotify);
 
@@ -12,9 +12,9 @@ describe("notify", () => {
   });
 
   it("notify win show", () => {
-    const mockFn = jest.fn(onWinNotify);
+    const mockFn = jest.fn(toast);
 
-    mockFn([], [], { peg: "", width: 280, id: 0, color: "#152354" });
+    mockFn("Test");
 
     expect(mockFn).toHaveBeenCalled();
   });

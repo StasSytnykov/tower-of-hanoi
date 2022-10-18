@@ -2,10 +2,27 @@ import { IDisk } from "../interfaces/disksInterface";
 
 export const onDeleteDisk = (
   sourceDisks: IDisk[],
-  setSourceDisks: (prevState: IDisk[]) => void
+  setSourceDisks: (
+    prevState: (prevState: {
+      destinationPegDisks: IDisk[];
+      sourcePegDisks: IDisk[];
+      auxiliaryPegDisks: IDisk[];
+      tookDisk: IDisk;
+    }) => {
+      destinationPegDisks: IDisk[];
+      sourcePegDisks: IDisk[];
+      auxiliaryPegDisks: IDisk[];
+      tookDisk: IDisk;
+    }
+  ) => void
 ) => {
-  if (sourceDisks.length > 3) {
+  if (sourceDisks.length > 4) {
     sourceDisks.length -= 1;
-    setSourceDisks([...sourceDisks]);
+    setSourceDisks((prevState) => {
+      return {
+        ...prevState,
+        sourcePegDisks: [...sourceDisks],
+      };
+    });
   }
 };

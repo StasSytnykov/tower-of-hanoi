@@ -4,23 +4,19 @@ import { IButtonProps } from "../../interfaces/buttonInterfaces";
 import { DisksButtonThumb } from "./DisksButton.styled";
 import { Button } from "../Button/Button";
 
-export const DisksButton = ({
-  tookDisk,
-  sourceDisks,
-  auxiliaryDisks,
-  destinationDisks,
-  setSourceDisks,
-}: IButtonProps) => {
+export const DisksButton = ({ pegDisks, setPegDisks }: IButtonProps) => {
   const onHandlePlusBtnClick = () => {
-    onAddDisk(sourceDisks, setSourceDisks);
+    onAddDisk(pegDisks.sourcePegDisks, setPegDisks);
   };
 
   const onHandleMinusBtnClick = () => {
-    onDeleteDisk(sourceDisks, setSourceDisks);
+    onDeleteDisk(pegDisks.sourcePegDisks, setPegDisks);
   };
 
   const isDisabledButton =
-    !!auxiliaryDisks.length || !!destinationDisks.length || !!tookDisk.id;
+    pegDisks.auxiliaryPegDisks.length !== 1 ||
+    pegDisks.destinationPegDisks.length !== 1 ||
+    !!pegDisks.tookDisk.id;
 
   return (
     <DisksButtonThumb>
