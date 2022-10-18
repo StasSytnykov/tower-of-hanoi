@@ -1,4 +1,4 @@
-import { DisksButton } from "../DisksButton/DisksButton";
+// import { DisksButton } from "../DisksButton/DisksButton";
 import { usePegsState } from "../../hooks/usePegsState";
 import { PegItem } from "./PegItem/PegItem";
 import {
@@ -10,16 +10,7 @@ import {
 } from "./PegsList.styled";
 
 export const PegsList = () => {
-  const {
-    sourceDisks,
-    setSourceDisks,
-    auxiliaryDisks,
-    setAuxiliaryDisks,
-    destinationDisks,
-    setDestinationDisks,
-    tookDisk,
-    setTookDisk,
-  } = usePegsState();
+  const { pegDisks, setPegDisks } = usePegsState();
 
   return (
     <PegsListThumb>
@@ -27,10 +18,9 @@ export const PegsList = () => {
         <PegsItemStyled>
           <CenterStick>
             <PegItem
-              tookDisk={tookDisk}
-              setTookDisk={setTookDisk}
-              pegDisks={sourceDisks}
-              setPegDisks={setSourceDisks}
+              tookDisk={pegDisks.tookDisk}
+              pegDisks={pegDisks.sourcePegDisks}
+              setPegDisks={setPegDisks}
             />
           </CenterStick>
           <BottomStick />
@@ -38,10 +28,9 @@ export const PegsList = () => {
         <PegsItemStyled>
           <CenterStick>
             <PegItem
-              tookDisk={tookDisk}
-              setTookDisk={setTookDisk}
-              pegDisks={auxiliaryDisks}
-              setPegDisks={setAuxiliaryDisks}
+              tookDisk={pegDisks.tookDisk}
+              pegDisks={pegDisks.auxiliaryPegDisks}
+              setPegDisks={setPegDisks}
             />
           </CenterStick>
           <BottomStick />
@@ -49,22 +38,21 @@ export const PegsList = () => {
         <PegsItemStyled>
           <CenterStick>
             <PegItem
-              pegDisks={destinationDisks}
-              setPegDisks={setDestinationDisks}
-              tookDisk={tookDisk}
-              setTookDisk={setTookDisk}
+              tookDisk={pegDisks.tookDisk}
+              pegDisks={pegDisks.destinationPegDisks}
+              setPegDisks={setPegDisks}
             />
           </CenterStick>
           <BottomStick />
         </PegsItemStyled>
       </PegsListStyled>
-      <DisksButton
-        tookDisk={tookDisk}
-        auxiliaryDisks={auxiliaryDisks}
-        destinationDisks={destinationDisks}
-        sourceDisks={sourceDisks}
-        setSourceDisks={setSourceDisks}
-      />
+      {/*<DisksButton*/}
+      {/*  tookDisk={tookDisk}*/}
+      {/*  auxiliaryDisks={auxiliaryDisks}*/}
+      {/*  destinationDisks={destinationDisks}*/}
+      {/*  sourceDisks={sourceDisks}*/}
+      {/*  setSourceDisks={setSourceDisks}*/}
+      {/*/>*/}
     </PegsListThumb>
   );
 };

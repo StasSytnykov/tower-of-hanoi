@@ -1,10 +1,10 @@
 import { toast } from "react-toastify";
-import { IPegs } from "../../interfaces/disksInterface";
+import { IDisk } from "../../interfaces/disksInterface";
 
 export const onWinNotify = (
-  sourceDisks: IPegs[],
-  auxiliaryDisks: IPegs[],
-  tookDisk: IPegs
+  sourceDisks: IDisk[],
+  auxiliaryDisks: IDisk[],
+  tookDisk: IDisk
 ) => {
   if (
     sourceDisks.length === 0 &&

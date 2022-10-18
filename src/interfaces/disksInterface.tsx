@@ -1,14 +1,33 @@
-export interface IPegs {
+export interface IDisk {
+  peg: string;
   width: number;
   id: number;
   color: string;
 }
 
 export interface IDisksPegsListProps {
-  pegDisks: IPegs[];
-  setPegDisks: (prevState: (prevState: IPegs[]) => IPegs[]) => void;
-  tookDisk: IPegs;
-  setTookDisk: (arg: IPegs) => void;
+  pegDisks: IDisk[];
+  setPegDisks: (
+    value:
+      | ((prevState: {
+          destinationPegDisks: IDisk[];
+          sourcePegDisks: IDisk[];
+          auxiliaryPegDisks: IDisk[];
+          tookDisk: IDisk;
+        }) => {
+          destinationPegDisks: IDisk[];
+          sourcePegDisks: IDisk[];
+          auxiliaryPegDisks: IDisk[];
+          tookDisk: IDisk;
+        })
+      | {
+          destinationPegDisks: IDisk[];
+          sourcePegDisks: IDisk[];
+          auxiliaryPegDisks: IDisk[];
+          tookDisk: IDisk;
+        }
+  ) => void;
+  tookDisk: IDisk;
 }
 
 export interface IDiskItemStyledProps {
@@ -16,5 +35,5 @@ export interface IDiskItemStyledProps {
 }
 
 export interface IDiskItemProps {
-  pegDisks: IPegs[];
+  pegDisks: IDisk[];
 }

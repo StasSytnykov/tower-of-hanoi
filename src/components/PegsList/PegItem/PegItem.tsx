@@ -7,10 +7,9 @@ export const PegItem = ({
   pegDisks,
   setPegDisks,
   tookDisk,
-  setTookDisk,
 }: IDisksPegsListProps) => {
   const onClickPeg = () => {
-    disksLogic(pegDisks, setPegDisks, tookDisk, setTookDisk);
+    disksLogic(pegDisks, setPegDisks, tookDisk);
   };
   return (
     <ListThumb onClick={onClickPeg}>

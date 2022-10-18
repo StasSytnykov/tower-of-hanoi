@@ -6,7 +6,7 @@ const mockFn = jest.fn(onErrorNotify);
 
 describe("notify", () => {
   it("notify error show", () => {
-    mockFn({ id: 1 }, [{ width: 280, id: 2, color: "#152354" }]);
+    mockFn({ id: 1 }, [{ peg: "", width: 280, id: 2, color: "#152354" }]);
 
     expect(mockFn).toHaveBeenCalled();
   });
@@ -14,7 +14,7 @@ describe("notify", () => {
   it("notify win show", () => {
     const mockFn = jest.fn(onWinNotify);
 
-    mockFn([], [], { width: 280, id: 0, color: "#152354" });
+    mockFn([], [], { peg: "", width: 280, id: 0, color: "#152354" });
 
     expect(mockFn).toHaveBeenCalled();
   });

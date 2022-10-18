@@ -1,8 +1,8 @@
-import { IPegs } from "../interfaces/disksInterface";
+import { IDisk } from "../interfaces/disksInterface";
 
 export const onDeleteDisk = (
-  sourceDisks: IPegs[],
-  setSourceDisks: (prevState: IPegs[]) => void
+  sourceDisks: IDisk[],
+  setSourceDisks: (prevState: IDisk[]) => void
 ) => {
   if (sourceDisks.length > 3) {
     sourceDisks.length -= 1;

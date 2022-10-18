@@ -9,7 +9,7 @@ describe("DiskItem", () => {
   it("should onAddDisk func work", () => {
     render(
       <DisksButton
-        tookDisk={{ width: 200, id: 1, color: "s" }}
+        tookDisk={{ peg: "", width: 200, id: 1, color: "s" }}
         sourceDisks={[]}
         auxiliaryDisks={[]}
         destinationDisks={[]}

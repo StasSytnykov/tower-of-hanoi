@@ -1,39 +1,34 @@
 import { onWinNotify } from "../utils/notifyLogic/onWinNotify";
 import { useEffect } from "react";
-import { onGetRandomColor } from "../utils/onGetRandomColor";
-import { IPegs } from "../interfaces/disksInterface";
+import { IDisk } from "../interfaces/disksInterface";
+import { initialState } from "../data/data";
 
 export const useNotifyWin = (
-  sourceDisks: IPegs[],
-  auxiliaryDisks: IPegs[],
-  tookDisk: IPegs,
-  setSourceDisks: ([]) => void,
-  setAuxiliaryDisks: ([]) => void,
-  setDestinationDisks: ([]) => void,
-  setTookDisk: (arg: IPegs) => void
+  pegDisks: {
+    destinationPegDisks: IDisk[];
+    sourcePegDisks: IDisk[];
+    auxiliaryPegDisks: IDisk[];
+    tookDisk: IDisk;
+  },
+  setPegDisks: (value: {
+    destinationPegDisks: IDisk[];
+    sourcePegDisks: IDisk[];
+    auxiliaryPegDisks: IDisk[];
+    tookDisk: IDisk;
+  }) => void
 ) => {
+  const { sourcePegDisks, auxiliaryPegDisks, tookDisk } = pegDisks;
   const onWinGame = () => {
     if (
-      sourceDisks.length === 0 &&
-      auxiliaryDisks.length === 0 &&
+      sourcePegDisks.length === 0 &&
+      auxiliaryPegDisks.length === 0 &&
       tookDisk.id === 0
     ) {
       setTimeout(() => {
-        setSourceDisks([
-          { width: 280, id: 1, color: onGetRandomColor() },
-          { width: 260, id: 2, color: onGetRandomColor() },
-          { width: 240, id: 3, color: onGetRandomColor() },
-        ]);
-        setAuxiliaryDisks([]);
-        setDestinationDisks([]);
-        setTookDisk({
-          width: 0,
-          id: 0,
-          color: "",
-        });
+        setPegDisks(initialState);
       }, 5000);
 
-      onWinNotify(sourceDisks, auxiliaryDisks, tookDisk);
+      onWinNotify(sourcePegDisks, auxiliaryPegDisks, tookDisk);
     }
   };
 
