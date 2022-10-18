@@ -1,10 +1,11 @@
 import { IDiskItemProps } from "../../../../interfaces/disksInterface";
-import { DisksListStyled, DiskItemStyled } from "./DiskList.styled";
+import { DiskItem } from "./DiskItem";
+import { DisksListStyled } from "./DiskList.styled";
 
 export const DiskList = ({ pegDisks }: IDiskItemProps) => (
   <DisksListStyled>
     {pegDisks.map((item) => (
-      <DiskItemStyled
+      <DiskItem
         data-testid="custom-element"
         key={item.id}
         width={item.width}

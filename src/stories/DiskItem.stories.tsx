@@ -1,16 +1,19 @@
 import { Meta, Story } from "@storybook/react";
-import { DiskItemStyled } from "../components/PegsList/PegItem/DiskList/DiskList.styled";
+import { DiskItem } from "../components/PegsList/PegItem/DiskList/DiskItem";
 import { IDiskItemStyledProps } from "../interfaces/disksInterface";
 
 const meta: Meta = {
   title: "DiskItem",
-  component: DiskItemStyled,
+  component: DiskItem,
 };
 
 export default meta;
 
-const Template: Story<IDiskItemStyledProps> = (args) => (
-  <DiskItemStyled {...args} />
-);
+const Template: Story<IDiskItemStyledProps> = (args) => <DiskItem {...args} />;
 
 export const Default = Template.bind({});
+Default.args = {
+  width: 100,
+  color: "#123123",
+  isHidden: true,
+};
