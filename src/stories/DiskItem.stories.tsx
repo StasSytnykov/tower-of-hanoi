@@ -1,15 +1,17 @@
 import { Meta, Story } from "@storybook/react";
-import { DiskItem } from "../components/PegsList/PegItem/DiskList/DiskItem";
+import { DiskItemPages } from "../pages/PegList/PegItem/DiskList/DiskItemPages";
 import { IDiskItemStyledProps } from "../interfaces/disksInterface";
 
 const meta: Meta = {
   title: "DiskItem",
-  component: DiskItem,
+  component: DiskItemPages,
 };
 
 export default meta;
 
-const Template: Story<IDiskItemStyledProps> = (args) => <DiskItem {...args} />;
+const Template: Story<IDiskItemStyledProps> = (args) => (
+  <DiskItemPages {...args} />
+);
 
 export const Default = Template.bind({});
 Default.args = {

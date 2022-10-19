@@ -1,7 +1,7 @@
 import { disksLogic } from "../../../utils/disksLogic";
 import { IDisksPegsListProps } from "../../../interfaces/disksInterface";
-import { DiskList } from "./DiskList/DiskList";
 import { PegItemPage } from "../../../pages/PegList/PegItem/PegItemPage";
+import { DiskListPages } from "../../../pages/PegList/PegItem/DiskList/DiskListPages";
 
 export const PegItem = ({
   pegDisks,
@@ -13,7 +13,7 @@ export const PegItem = ({
   };
   return (
     <PegItemPage onClickPeg={onClickPeg}>
-      <DiskList pegDisks={pegDisks}></DiskList>
+      <DiskListPages pegDisks={pegDisks}></DiskListPages>
     </PegItemPage>
   );
 };

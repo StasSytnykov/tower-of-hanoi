@@ -1,8 +1,7 @@
 import { onAddDisk } from "../../utils/onAddDisk";
 import { onDeleteDisk } from "../../utils/onDeleteDisk";
 import { IButtonProps } from "../../interfaces/buttonInterfaces";
-import { DisksButtonThumb } from "./DisksButton.styled";
-import { Button } from "../../pages/Button/Button";
+import { DisksButtonPage } from "../../pages/DisksButton/DisksButtonPage";
 
 export const DisksButton = ({ pegDisks, setPegDisks }: IButtonProps) => {
   const onHandlePlusBtnClick = () => {
@@ -19,19 +18,10 @@ export const DisksButton = ({ pegDisks, setPegDisks }: IButtonProps) => {
     !!pegDisks.tookDisk.id;
 
   return (
-    <DisksButtonThumb>
-      <Button
-        variant={"primary"}
-        onClick={onHandlePlusBtnClick}
-        disabled={isDisabledButton}
-        children={"+1 disk"}
-      />
-      <Button
-        variant={"secondary"}
-        onClick={onHandleMinusBtnClick}
-        disabled={isDisabledButton}
-        children={"-1 disk"}
-      />
-    </DisksButtonThumb>
+    <DisksButtonPage
+      isDisabledButton={isDisabledButton}
+      onHandleMinusBtnClick={onHandleMinusBtnClick}
+      onHandlePlusBtnClick={onHandlePlusBtnClick}
+    />
   );
 };
