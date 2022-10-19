@@ -1,5 +1,5 @@
 import { ButtonStyled } from "./Button.styled";
-import { IBtnProps } from "../../interfaces/buttonInterfaces";
+import { IBtnProps } from "../../utils/types";
 
 export const Button = ({ children, ...props }: IBtnProps) => {
   return (

@@ -1,6 +1,6 @@
-import { DiskItemStyled } from "./DiskListPages.styled";
+import { DiskItemStyled } from "../DiskList/DiskList.styled";
 
-export const DiskItemPages = ({ ...props }) => (
+export const DiskItem = ({ ...props }) => (
   <DiskItemStyled
     isHidden
     width={props.width}

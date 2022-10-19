@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { IDiskItemStyledProps } from "../../../../interfaces/disksInterface";
+import { IDiskItemStyledProps } from "../../utils/types";
 
 export const DisksListStyled = styled.ul`
   display: flex;

@@ -1,24 +1,12 @@
-import { IDisk } from "../interfaces/disksInterface";
-import { findLastIndex } from "./findLastIndex";
+import { IDisk, TPegsState } from "./types";
+
 import { onGetRandomColor } from "./onGetRandomColor";
 
 export const onAddDisk = (
   sourceDisks: IDisk[],
-  setSourceDisks: (
-    prevState: (prevState: {
-      destinationPegDisks: IDisk[];
-      sourcePegDisks: IDisk[];
-      auxiliaryPegDisks: IDisk[];
-      tookDisk: IDisk;
-    }) => {
-      destinationPegDisks: IDisk[];
-      sourcePegDisks: IDisk[];
-      auxiliaryPegDisks: IDisk[];
-      tookDisk: IDisk;
-    }
-  ) => void
+  setSourceDisks: (prevState: (prevState: TPegsState) => TPegsState) => void
 ) => {
-  const lastDiskInStartPeg = sourceDisks[findLastIndex(sourceDisks)];
+  const lastDiskInStartPeg = sourceDisks[sourceDisks.length - 1];
 
   if (lastDiskInStartPeg.width !== 40) {
     setSourceDisks((prevState) => {

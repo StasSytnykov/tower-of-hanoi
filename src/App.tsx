@@ -1,12 +1,12 @@
 import React from "react";
 import { ToastContainer } from "react-toastify";
-import { PegsList } from "./components/PegsList/PegsList";
+import { PegsListPage } from "./pages/PegsList";
 import "react-toastify/dist/ReactToastify.css";
 
 function App() {
   return (
     <div>
-      <PegsList />
+      <PegsListPage />
       <ToastContainer
         style={{ width: "400px" }}
         position="top-center"

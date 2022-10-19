@@ -1,28 +1,10 @@
-import { usePegsState } from "../../hooks/usePegsState";
-import { PegsListPage } from "../../pages/PegList/PegsListPage";
-import { PegItem } from "./PegItem/PegItem";
-import { DisksButton } from "../DisksButton/DisksButton";
+import { PegsListThumb } from "./PegsList.styled";
+import { HTMLAttributes, ReactNode } from "react";
 
-export const PegsList = () => {
-  const { pegDisks, setPegDisks } = usePegsState();
-  const pegDisksKeys = Object.keys(pegDisks) as Array<keyof typeof pegDisks>;
+interface Props extends HTMLAttributes<HTMLDivElement> {
+  children: ReactNode;
+}
 
-  return (
-    <>
-      <PegsListPage>
-        {pegDisksKeys.map((item) => {
-          if (item !== "tookDisk") {
-            return (
-              <PegItem
-                pegDisks={pegDisks[item]}
-                setPegDisks={setPegDisks}
-                tookDisk={pegDisks.tookDisk}
-              />
-            );
-          }
-        })}
-      </PegsListPage>
-      <DisksButton pegDisks={pegDisks} setPegDisks={setPegDisks}></DisksButton>
-    </>
-  );
-};
+export const PegsList = ({ children }: Props) => (
+  <PegsListThumb>{children}</PegsListThumb>
+);

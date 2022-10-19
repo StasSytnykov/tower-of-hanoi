@@ -1,20 +1,8 @@
-import { IDisk } from "../interfaces/disksInterface";
+import { IDisk, TPegsState } from "./types";
 
 export const onDeleteDisk = (
   sourceDisks: IDisk[],
-  setSourceDisks: (
-    prevState: (prevState: {
-      destinationPegDisks: IDisk[];
-      sourcePegDisks: IDisk[];
-      auxiliaryPegDisks: IDisk[];
-      tookDisk: IDisk;
-    }) => {
-      destinationPegDisks: IDisk[];
-      sourcePegDisks: IDisk[];
-      auxiliaryPegDisks: IDisk[];
-      tookDisk: IDisk;
-    }
-  ) => void
+  setSourceDisks: (prevState: (prevState: TPegsState) => TPegsState) => void
 ) => {
   if (sourceDisks.length > 4) {
     sourceDisks.length -= 1;

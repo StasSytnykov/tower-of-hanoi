@@ -1,13 +1,18 @@
-import { IPegItemPage } from "../../../interfaces/pagesInterfaces";
 import {
   ListThumb,
   PegsListPageStyled,
   PegsItemStyled,
   CenterStick,
   BottomStick,
-} from "./PegItemPage.styled";
+} from "./PegItem.styled";
+import { HTMLAttributes, ReactNode } from "react";
 
-export const PegItemPage = ({ children, onClickPeg }: IPegItemPage) => {
+interface Props extends HTMLAttributes<HTMLUListElement> {
+  children: ReactNode;
+  onClickPeg: () => void;
+}
+
+export const PegItem = ({ children, onClickPeg }: Props) => {
   return (
     <PegsListPageStyled>
       <PegsItemStyled>

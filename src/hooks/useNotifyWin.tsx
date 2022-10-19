@@ -1,21 +1,11 @@
 import { useEffect } from "react";
-import { IDisk } from "../interfaces/disksInterface";
-import { initialState } from "../data/data";
+import { TPegsState } from "../utils/types";
+import { initialState } from "../utils/initialState";
 import { toast } from "react-toastify";
 
 export const useNotifyWin = (
-  pegDisks: {
-    destinationPegDisks: IDisk[];
-    sourcePegDisks: IDisk[];
-    auxiliaryPegDisks: IDisk[];
-    tookDisk: IDisk;
-  },
-  setPegDisks: (value: {
-    destinationPegDisks: IDisk[];
-    sourcePegDisks: IDisk[];
-    auxiliaryPegDisks: IDisk[];
-    tookDisk: IDisk;
-  }) => void
+  pegDisks: TPegsState,
+  setPegDisks: (value: TPegsState) => void
 ) => {
   const { sourcePegDisks, auxiliaryPegDisks, tookDisk } = pegDisks;
   const onWinGame = () => {

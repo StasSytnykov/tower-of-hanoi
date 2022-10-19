@@ -1,37 +1,21 @@
 import { onErrorNotify } from "./onErrorNotify";
-import { IDisk } from "../interfaces/disksInterface";
-import { findLastIndex } from "./findLastIndex";
+import { IDisk, TPegsState } from "./types";
 
 export const disksLogic = (
   pegDisks: IDisk[],
   setPegDisks: (
-    value:
-      | ((prevState: {
-          destinationPegDisks: IDisk[];
-          sourcePegDisks: IDisk[];
-          auxiliaryPegDisks: IDisk[];
-          tookDisk: IDisk;
-        }) => {
-          destinationPegDisks: IDisk[];
-          sourcePegDisks: IDisk[];
-          auxiliaryPegDisks: IDisk[];
-          tookDisk: IDisk;
-        })
-      | {
-          destinationPegDisks: IDisk[];
-          sourcePegDisks: IDisk[];
-          auxiliaryPegDisks: IDisk[];
-          tookDisk: IDisk;
-        }
+    value: ((prevState: TPegsState) => TPegsState) | TPegsState
   ) => void,
   tookDisk: IDisk
 ) => {
+  const currentPeg = `${pegDisks[0].peg}PegDisks`;
+
   //On took disk
-  if (pegDisks[findLastIndex(pegDisks)] !== undefined && tookDisk.id === 0) {
+  if (pegDisks[pegDisks.length - 1] !== undefined && tookDisk.id === 0) {
     setPegDisks((prevState) => {
       return {
         ...prevState,
-        tookDisk: { ...pegDisks[findLastIndex(pegDisks)] },
+        tookDisk: { ...pegDisks[pegDisks.length - 1] },
       };
     });
   }
@@ -41,14 +25,7 @@ export const disksLogic = (
     setPegDisks((prevState) => {
       const newPegs = [...pegDisks];
       newPegs.pop();
-      switch (pegDisks[0].peg) {
-        case "source":
-          return { ...prevState, sourcePegDisks: [...newPegs] };
-        case "auxiliary":
-          return { ...prevState, auxiliaryPegDisks: [...newPegs] };
-        default:
-          return { ...prevState, destinationPegDisks: [...newPegs] };
-      }
+      return { ...prevState, [currentPeg]: [...newPegs] };
     });
   }
 
@@ -56,32 +33,16 @@ export const disksLogic = (
   setPegDisks((prevState) => {
     if (
       tookDisk.id !== 0 &&
-      (pegDisks.length === 1 ||
-        pegDisks[findLastIndex(pegDisks)].id < tookDisk.id)
+      (pegDisks.length === 1 || pegDisks[pegDisks.length - 1].id < tookDisk.id)
     ) {
       const newPegs = [...pegDisks];
       newPegs.push(tookDisk);
 
-      switch (pegDisks[0].peg) {
-        case "source":
-          return {
-            ...prevState,
-            sourcePegDisks: [...newPegs],
-            tookDisk: { peg: "", width: 0, id: 0, color: "" },
-          };
-        case "auxiliary":
-          return {
-            ...prevState,
-            auxiliaryPegDisks: [...newPegs],
-            tookDisk: { peg: "", width: 0, id: 0, color: "" },
-          };
-        default:
-          return {
-            ...prevState,
-            destinationPegDisks: [...newPegs],
-            tookDisk: { peg: "", width: 0, id: 0, color: "" },
-          };
-      }
+      return {
+        ...prevState,
+        [currentPeg]: [...newPegs],
+        tookDisk: { peg: "", width: 0, id: 0, color: "" },
+      };
     }
 
     return { ...prevState };
