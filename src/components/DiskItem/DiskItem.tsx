@@ -1,4 +1,4 @@
-import { DiskItemStyled } from "../DiskList/DiskList.styled";
+import { DiskItemStyled } from "../DiskItem/DiskItem.styled";
 
 export const DiskItem = ({ ...props }) => (
   <DiskItemStyled
