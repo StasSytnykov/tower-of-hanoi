@@ -1,5 +1,5 @@
 import { Meta, Story } from "@storybook/react";
-import { Button } from "../components/Button/Button";
+import { Button } from "../pages/Button/Button";
 import { IBtnProps } from "../interfaces/buttonInterfaces";
 
 const meta: Meta = {

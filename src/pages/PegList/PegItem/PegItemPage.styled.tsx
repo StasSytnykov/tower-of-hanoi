@@ -1,27 +1,16 @@
 import styled from "styled-components";
 
-const PegsListThumb = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-`;
-
-const PegsListStyled = styled.ul`
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-
+const PegsListPageStyled = styled.ul`
   margin-top: 100px;
   margin-bottom: 50px;
-`;
-
-const PegsItemStyled = styled.li`
-  position: relative;
 
   &:not(:last-child) {
     margin-right: 100px;
   }
+`;
+
+const PegsItemStyled = styled.li`
+  position: relative;
 `;
 
 const CenterStick = styled.div`
@@ -39,10 +28,19 @@ const BottomStick = styled.div`
   border-bottom: 15px solid darkred;
 `;
 
+const ListThumb = styled.div`
+  position: absolute;
+  left: 0;
+  bottom: 15px;
+
+  min-width: 300px;
+  min-height: 315px;
+`;
+
 export {
-  PegsListThumb,
-  PegsListStyled,
+  PegsListPageStyled,
   PegsItemStyled,
   CenterStick,
   BottomStick,
+  ListThumb,
 };

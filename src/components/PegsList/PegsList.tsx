@@ -1,52 +1,26 @@
-import { DisksButton } from "../DisksButton/DisksButton";
 import { usePegsState } from "../../hooks/usePegsState";
-import { PegItem } from "./PegItem/PegItem";
-import {
-  PegsListThumb,
-  PegsListStyled,
-  PegsItemStyled,
-  CenterStick,
-  BottomStick,
-} from "./PegsList.styled";
+import { PegsListPage } from "../../pages/PegList/PegsListPage";
+import { PegItemPage } from "../../pages/PegList/PegItem/PegItemPage";
 
 export const PegsList = () => {
   const { pegDisks, setPegDisks } = usePegsState();
+  const pegDisksKeys = Object.keys(pegDisks) as Array<keyof typeof pegDisks>;
+  console.log(pegDisksKeys);
 
   return (
-    <PegsListThumb>
-      <PegsListStyled>
-        <PegsItemStyled>
-          <CenterStick>
-            <PegItem
-              tookDisk={pegDisks.tookDisk}
-              pegDisks={pegDisks.sourcePegDisks}
+    <PegsListPage pegDisks={pegDisks} setPegDisks={setPegDisks}>
+      {pegDisksKeys.map((item) => {
+        if (item !== "tookDisk") {
+          console.log(pegDisks[item]);
+          return (
+            <PegItemPage
+              pegDisks={pegDisks[item]}
               setPegDisks={setPegDisks}
-            />
-          </CenterStick>
-          <BottomStick />
-        </PegsItemStyled>
-        <PegsItemStyled>
-          <CenterStick>
-            <PegItem
               tookDisk={pegDisks.tookDisk}
-              pegDisks={pegDisks.auxiliaryPegDisks}
-              setPegDisks={setPegDisks}
             />
-          </CenterStick>
-          <BottomStick />
-        </PegsItemStyled>
-        <PegsItemStyled>
-          <CenterStick>
-            <PegItem
-              tookDisk={pegDisks.tookDisk}
-              pegDisks={pegDisks.destinationPegDisks}
-              setPegDisks={setPegDisks}
-            />
-          </CenterStick>
-          <BottomStick />
-        </PegsItemStyled>
-      </PegsListStyled>
-      <DisksButton pegDisks={pegDisks} setPegDisks={setPegDisks} />
-    </PegsListThumb>
+          );
+        }
+      })}
+    </PegsListPage>
   );
 };

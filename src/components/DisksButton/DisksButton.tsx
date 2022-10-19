@@ -2,7 +2,7 @@ import { onAddDisk } from "../../utils/onAddDisk";
 import { onDeleteDisk } from "../../utils/onDeleteDisk";
 import { IButtonProps } from "../../interfaces/buttonInterfaces";
 import { DisksButtonThumb } from "./DisksButton.styled";
-import { Button } from "../Button/Button";
+import { Button } from "../../pages/Button/Button";
 
 export const DisksButton = ({ pegDisks, setPegDisks }: IButtonProps) => {
   const onHandlePlusBtnClick = () => {
