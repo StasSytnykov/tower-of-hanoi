@@ -1,5 +1,3 @@
-import { disksLogic } from "../../../utils/disksLogic";
-import { IDisksPegsListProps } from "../../../interfaces/disksInterface";
 import {
   ListThumb,
   PegsListPageStyled,
@@ -7,23 +5,19 @@ import {
   CenterStick,
   BottomStick,
 } from "./PegItemPage.styled";
-import { DiskList } from "./DiskList/DiskList";
+import { HTMLAttributes, ReactNode } from "react";
 
-export const PegItemPage = ({
-  pegDisks,
-  setPegDisks,
-  tookDisk,
-}: IDisksPegsListProps) => {
-  const onClickPeg = () => {
-    disksLogic(pegDisks, setPegDisks, tookDisk);
-  };
+interface IPegItemPage extends HTMLAttributes<HTMLUListElement> {
+  children: ReactNode;
+  onClickPeg: () => void;
+}
+
+export const PegItemPage = ({ children, onClickPeg }: IPegItemPage) => {
   return (
     <PegsListPageStyled>
       <PegsItemStyled>
         <CenterStick>
-          <ListThumb onClick={onClickPeg}>
-            <DiskList pegDisks={pegDisks}></DiskList>
-          </ListThumb>
+          <ListThumb onClick={onClickPeg}>{children}</ListThumb>
         </CenterStick>
         <BottomStick />
       </PegsItemStyled>
