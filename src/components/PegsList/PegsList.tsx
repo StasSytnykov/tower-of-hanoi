@@ -6,8 +6,5 @@ interface Props extends HTMLAttributes<HTMLDivElement> {
 }
 
 export const PegsList = ({ children }: Props) => (
-  <>
-    <h1>Tower of Hanoi</h1>
-    <PegsListThumb>{children}</PegsListThumb>
-  </>
+  <PegsListThumb>{children}</PegsListThumb>
 );
